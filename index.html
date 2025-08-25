@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Showdown Team Hub</title>
+    <meta name="description" content="A central place to store, share, and discover competitive Pokémon teams for Pokémon Showdown.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Poké Ball" width="32" height="32">
+                <span>Team Hub</span>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="#teams-section" role="menuitem">Teams</a></li>
+                    <li role="none"><a href="#add-team-section" role="menuitem">Add Team</a></li>
+                </ul>
+                <button id="theme-switcher" class="theme-switcher" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-container">
+            <h1>Welcome to the Pokémon Showdown Team Hub</h1>
+            <p>Your central place to store, share, and discover competitive Pokémon teams.</p>
+            <a href="#add-team-section" class="cta-button">Get Started</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="teams-section" aria-labelledby="teams-heading">
+            <div class="container">
+                <h2 id="teams-heading">Explore Teams</h2>
+                <div class="search-container">
+                    <label for="search-bar" class="sr-only">Search for teams</label>
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input type="search" id="search-bar" placeholder="Search for teams...">
+                </div>
+                <div id="teams-grid" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section id="add-team-section" class="alternate-bg" aria-labelledby="add-team-heading">
+            <div class="container">
+                <h2 id="add-team-heading">Add a New Team</h2>
+                <form id="add-team-form">
+                    <div class="form-group">
+                        <label for="team-name">Team Name</label>
+                        <input type="text" id="team-name" placeholder="e.g., Hyper Offense" required>
+                        <div class="error-message" id="team-name-error" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="team-code">Pokémon Showdown Export</label>
+                        <textarea id="team-code" placeholder="Paste your team export here..." required rows="10"></textarea>
+                        <div class="error-message" id="team-code-error" aria-live="polite"></div>
+                    </div>
+                    <div id="team-preview" class="team-preview">
+                        <h3>Team Preview</h3>
+                        <div class="pokemon-preview-sprites"></div>
+                        <div class="error-message" id="team-preview-error" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="team-instructions">Usage Instructions</label>
+                        <textarea id="team-instructions" placeholder="Explain the team's strategy..." rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-plus-circle" aria-hidden="true"></i> Add Team
+                    </button>
+                    <div class="form-status-message" id="form-status-message" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="team-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;">
+        <div class="modal-content">
+            <button class="close-button" aria-label="Close modal">&times;</button>
+            <div id="modal-team-details"></div>
+        </div>
+    </div>
+
+    <button id="back-to-top" class="back-to-top" title="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <footer>
+        <p>Created with Gemini</p>
+    </footer>
+
+    <script src="js/pokemon.js"></script>
+    <script src="js/teams.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
